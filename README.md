@@ -22,7 +22,7 @@ hello-chart/values-prod.yml
 To run, for example, testing version on minikube, use
 ```
 1. helm install hello-chart -f hello-chart/values-testing.yml ./hello-chart
-2. minicube service frontend
+2. minikube service frontend
 ```
 which should display
 ```
