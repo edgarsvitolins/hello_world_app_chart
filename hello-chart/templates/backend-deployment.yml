@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  selector:
+    matchLabels:
+      app: hello
+      tier: backend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hello
+        tier: backend
+    spec:
+      containers:
+        - name: backend
+          image: "edgarsvitolins/hello_world_app:main"
+          ports:
+            - name: http
+              containerPort: 8080

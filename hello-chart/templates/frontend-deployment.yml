@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+spec:
+  selector:
+    matchLabels:
+      app: hello
+      tier: frontend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hello
+        tier: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: "edgarsvitolins/hello_world_app_fe:main"
+          env:
+            - name: REACT_APP_BE_URI
+              value: "http://backend.default.svc.cluster.local:8080"
+          ports:
+            - name: http
+              containerPort: 8000
